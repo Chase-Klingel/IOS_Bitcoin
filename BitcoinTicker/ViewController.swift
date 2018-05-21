@@ -21,8 +21,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBOutlet weak var bitcoinPriceLabel: UILabel!
     @IBOutlet weak var currencyPicker: UIPickerView!
     
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,8 +28,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         currencyPicker.dataSource = self
     }
 
-    
-    //TODO: Place your 3 UIPickerView delegate methods here
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -39,7 +35,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return currencyArray.count
     }
-    
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return currencyArray[row]
@@ -50,8 +45,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         finalURL = baseURL + currencyArray[currentRow]
         getBitCoinValue(url: finalURL)
     }
-    
-    
     
     //MARK: - Networking
     /***************************************************************/
@@ -80,24 +73,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             bitcoinPriceLabel.text = "Bitcoin value not available."
         }
     }
-    
-    
-//    func updateWeatherData(json : JSON) {
-//        
-//        if let tempResult = json["main"]["temp"].double {
-//        
-//        weatherData.temperature = Int(round(tempResult!) - 273.15)
-//        weatherData.city = json["name"].stringValue
-//        weatherData.condition = json["weather"][0]["id"].intValue
-//        weatherData.weatherIconName =    weatherData.updateWeatherIcon(condition: weatherData.condition)
-//        }
-//        
-//        updateUIWithWeatherData()
-//    }
-//    
-
-
-
 
 }
 
